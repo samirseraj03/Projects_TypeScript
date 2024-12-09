@@ -80,45 +80,5 @@ export class UserController {
 
 
 
-export const getLogin = (_req : _Request  , _res : _Response) => {
-    _res.send('hello world')
-}
-
-export const getRegister = (_req : _Request  , _res : _Response) => {
-    _res.send('hello world')
-}
 
 
-export const postRegister = (_req : _Request  , _res : _Response) => {
-    _res.send('hello world')
-}
-
-export const getLogout = (_req : _Request  , _res : _Response) => {
-    _res.send('hello world')
-}
-
-
-export const getProject = (_req : _Request  , _res : _Response) => {
-    _res.send('hello world')
-}
-
-
-export const postProject = (_req : _Request  , _res : _Response) => {
-    _res.send('hello world')
-}
-
-export const patchProject = (_req : _Request  , _res : _Response) => {
-    _res.send('hello world')
-}
-
-export const getProfile = (_req : _Request  , _res : _Response) => {
-    _res.send('hello world')
-}
-
-export const patchProfile = (_req : _Request  , _res : _Response) => {
-    _res.send('hello world')
-}
-
-export const deleteProfile = (_req : _Request  , _res : _Response) => {
-    _res.send('hello world')
-}
