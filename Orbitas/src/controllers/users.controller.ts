@@ -10,6 +10,7 @@ export class UserController {
   public static async getAllUsers(_req: _Request, _res: _Response): Promise<void> {
     try {
       const users = await User.find(); // Retrieve all users
+      console.log(users)
       _res.status(200).json(users);
     } catch (error) {
       console.error('Error fetching users:', error);

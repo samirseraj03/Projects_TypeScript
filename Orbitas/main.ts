@@ -3,16 +3,23 @@ import router from "./src/routes/orbitas.routes.ts";
 import { Mongoose } from './src/services/mongoose_services.ts'; 
 
 
-Mongoose.getInstance();
+const startServer = async () => {
+    try {
+        const mongooseInstance = Mongoose.getInstance(); // Obtiene la instancia
+        await mongooseInstance.connect(); // connect to mongoDB
+        mongooseInstance.setupGracefulShutdown(); // Configura el apagado
 
-const app = express()
-app.use(express.json())
+        const app = express();
+        app.use(express.json());
+        app.use(router);
 
-app.use(router)
+        const PORT = 3000;
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+        });
+    } catch (error) {
+        console.error('Failed to start server:', error);
+    }
+};
 
-app.listen(3000 , () => {
-    console.log('Server is renuning on port 3000');
-});
-
-
-
+startServer();

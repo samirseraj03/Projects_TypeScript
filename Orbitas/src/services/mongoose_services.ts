@@ -13,7 +13,8 @@ export class Mongoose {
     private isConnected = false;
 
     private constructor() {
-        this.connect();
+        // debug mongoose
+        mongoose.set('debug', true);
     }
 
     // Method to get the singleton instance of the class
@@ -25,11 +26,13 @@ export class Mongoose {
     }
 
     // Automatically connect to the database
-    private async connect(): Promise<void> {
+    public async connect(): Promise<void> {
         if (this.isConnected) return;
 
         try {
-            await mongoose.connect(mongoUrl as string);
+            await mongoose.connect(process.env.MONGO_URL as string, {
+                dbName: process.env.DB_NAME , 
+              });
             this.isConnected = true;
             console.log('MongoDB connected successfully');
         } catch (error) {
@@ -68,5 +71,3 @@ export class Mongoose {
 const mongooseInstance = Mongoose.getInstance();
 mongooseInstance.setupGracefulShutdown();
 
-// Connect to mongoose
-await mongoose.connect(mongoUrl as string);
