@@ -4,8 +4,9 @@ import process from "node:process";
 
 // Load environment variables
 dotenv.config();
-// Mongo URL
-const mongoUrl = process.env.MONGO_URL;
+// creat constant environment
+const mongoUrl = process.env.MONGO_URL as string;
+const dbName = process.env.DB_NAME as string
 
 export class Mongoose {
 
@@ -30,8 +31,8 @@ export class Mongoose {
         if (this.isConnected) return;
 
         try {
-            await mongoose.connect(process.env.MONGO_URL as string, {
-                dbName: process.env.DB_NAME , 
+            await mongoose.connect(mongoUrl, {
+                dbName: dbName , 
               });
             this.isConnected = true;
             console.log('MongoDB connected successfully');
