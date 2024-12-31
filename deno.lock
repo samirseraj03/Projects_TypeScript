@@ -7,7 +7,8 @@
     "npm:bcrypt@*": "5.1.1",
     "npm:dotenv@*": "16.4.5",
     "npm:express@*": "4.21.1",
-    "npm:mongoose@*": "8.8.3"
+    "npm:mongoose@*": "8.8.3",
+    "npm:nodemailer@*": "6.9.16"
   },
   "jsr": {
     "@std/assert@1.0.9": {
@@ -505,6 +506,9 @@
       "dependencies": [
         "whatwg-url@5.0.0"
       ]
+    },
+    "nodemailer@6.9.16": {
+      "integrity": "sha512-psAuZdTIRN08HKVd/E8ObdV6NO7NTBY3KsC30F7M4H1OnmLCUNaS56FpYxyb26zWLSyYF9Ozch9KYHhHegsiOQ=="
     },
     "nopt@5.0.0": {
       "integrity": "sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==",
