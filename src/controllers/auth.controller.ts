@@ -1,6 +1,6 @@
-import { _Request, _Response } from "npm:express";
-import bcrypt from "npm:bcrypt";
-import nodemailer from 'npm:nodemailer';
+import { _Request, _Response } from "express";
+import bcrypt from "bcrypt";
+import nodemailer from 'nodemailer';
 
 // import Models
 import { User, IUser } from "../models/User.models.ts";
