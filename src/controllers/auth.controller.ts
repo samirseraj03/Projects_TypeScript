@@ -1,4 +1,4 @@
-import { _Request, _Response } from "express";
+import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import nodemailer from 'nodemailer';
 
@@ -11,9 +11,9 @@ export class AuthController {
 
   // login user
   public static async getUserLogin(
-    _req: _Request,
-    _res: _Response
-  ): Promise<void> {
+    _req: Request,
+    _res: Response
+  ): Promise<any> {
     // Variabls
     const { identifier, password } = _req.body;
     let isEmail: boolean = false;
@@ -63,9 +63,9 @@ export class AuthController {
 
   // post new register
   public static async postNewRegister(
-    _req: _Request,
-    _res: _Response
-  ): Promise<void> {
+    _req: Request,
+    _res: Response
+  ): Promise<any> {
     try {
       // Check if required fields are in the request body
       const { email, username, password }: Partial<IUser> = _req.body;
@@ -129,7 +129,7 @@ export class AuthController {
     }
   }
 
-  public static getUserLogout(_req: _Request, _res: _Response): void {
+  public static getUserLogout(_req: Request, _res: Response): void {
     // taking into account that the frontend is responsible for closing the user's session.
     // redirecting the user to the login page or to the home page
     _res.status(200).json({
@@ -138,7 +138,7 @@ export class AuthController {
   }
 
 
-  public static async ResetPassword(_req: _Request, _res: _Response): Promise<void> {
+  public static async ResetPassword(_req: Request, _res: Response): Promise<any> {
     // Variabls
     const { identifier } = _req.body;
     let isEmail: boolean = false;
@@ -204,7 +204,7 @@ export class AuthController {
 
 
 
-public static async UpdatePasswordWithTokenValidation(_req: _Request, _res: _Response): Promise<void> {
+public static async UpdatePasswordWithTokenValidation(_req: Request, _res: Response): Promise<any> {
   const { token, newPassword } = _req.body; // Recibe el token y la nueva contraseña
 
   try {
@@ -245,7 +245,7 @@ public static async UpdatePasswordWithTokenValidation(_req: _Request, _res: _Res
 
 
 
-public static async sendVerificationEmail(_req: _Request, _res: _Response): Promise<void> {
+public static async sendVerificationEmail(_req: Request, _res: Response): Promise<any> {
   const { email } = _req.body; // Suponiendo que el email se pasa en el cuerpo de la solicitud
 
   try {
@@ -304,7 +304,7 @@ public static async sendVerificationEmail(_req: _Request, _res: _Response): Prom
 }
 
 
-public static async verifyEmail(_req: _Request, _res: _Response): Promise<void> {
+public static async verifyEmail(_req: Request, _res: Response): Promise<any> {
   const { token } = _req.query; // El token de verificación estará en la URL como parámetro
 
   try {
@@ -344,17 +344,17 @@ public static async verifyEmail(_req: _Request, _res: _Response): Promise<void> 
 
 
   // Other metohds to login
-  public static getUserLoginWithGithub(_req: _Request, _res: _Response): void {}
-  public static getUserLoginWithGoogle(_req: _Request, _res: _Response): void {}
+  public static getUserLoginWithGithub(_req: Request, _res: Response): void {}
+  public static getUserLoginWithGoogle(_req: Request, _res: Response): void {}
 
   // Other metohds to register
-  public static postNewRegisterWithGithub(_req: _Request,_res: _Response): void {
+  public static postNewRegisterWithGithub(_req: Request,_res: Response): void {
     _res.send("hello world");
   }
 
   public static postNewRegisterWithGoogle(
-    _req: _Request,
-    _res: _Response
+    _req: Request,
+    _res: Response
   ): void {
     _res.send("hello world");
   }

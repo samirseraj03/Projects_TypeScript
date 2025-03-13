@@ -1,4 +1,4 @@
-import { _Request , _Response }from 'express';
+import { Request , Response }from 'express';
 // import Models
 import { User } from '../models/User.models.ts';
 import { Project , IProject } from '../models/Projects.models.ts'; // Asegúrate de que la ruta del modelo de Project sea correcta
@@ -8,7 +8,7 @@ import { Project , IProject } from '../models/Projects.models.ts'; // Asegúrate
 
 export class ProjectController {
   
-    public static async  getProjectsWithIdUser(_req: _Request, _res: _Response): Promise<void> {
+    public static async  getProjectsWithIdUser(_req: Request, _res: Response): Promise<any> {
       const { userId } = _req.params; 
 
       try {
@@ -35,7 +35,7 @@ export class ProjectController {
 
     }
   
-    public static async postProject(_req: _Request, _res: _Response): Promise<void> {
+    public static async postProject(_req: Request, _res: Response): Promise<any> {
 
         const { id_user, title, subtitle, tags, status, source_type, image_url, archive_md_url } = _req.body; 
 
@@ -75,7 +75,7 @@ export class ProjectController {
         }
     }
 
-    public static async getProjectWithId(_req: _Request, _res: _Response): Promise<void> {
+    public static async getProjectWithId(_req: Request, _res: Response): Promise<any> {
       const { projectId } = _req.params; // El projectId se pasa en la URL como parámetro
     
       try {
@@ -95,7 +95,7 @@ export class ProjectController {
     }
     
   
-    public static async updateProject(_req: _Request, _res: _Response): Promise<void> {
+    public static async updateProject(_req: Request, _res: Response): Promise<any> {
       const { projectId } = _req.params; // El projectId se pasa en la URL como parámetro
       const updateData : IProject  = _req.body; // Obtener todo el cuerpo de la solicitud
     
@@ -123,7 +123,7 @@ export class ProjectController {
     }
 
 
-    public static async deleteProject(_req: _Request, _res: _Response): Promise<void> {
+    public static async deleteProject(_req: Request, _res: Response): Promise<any> {
       const { projectId } = _req.params; // Obtener el ID del proyecto desde los parámetros de la solicitud
     
       try {
@@ -143,7 +143,7 @@ export class ProjectController {
       }
     }
 
-    public static async updateReadmeWithProjectId (_req: _Request, _res: _Response): Promise<void> {
+    public static async updateReadmeWithProjectId (_req: Request, _res: Response): Promise<void> {
 
     }
 
