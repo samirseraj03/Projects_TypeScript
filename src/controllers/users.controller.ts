@@ -1,12 +1,12 @@
-import { Request, Response } from 'express';
+import { _Request, _Response } from 'express';
 // import Models
 import { User } from "../models/User.models.ts";
 
 export class UserController {
   // Get a user by ID
   public static async getUserById(
-    _req: Request,
-    _res: Response
+    _req: _Request,
+    _res: _Response
   ): Promise<void> {
     try {
       const user = await User.findById(_req.params.id); // Retrieve user by ID
@@ -23,8 +23,8 @@ export class UserController {
 
   // Create a new user
   public static async createUser(
-    _req: Request,
-    _res: Response
+    _req: _Request,
+    _res: _Response
   ): Promise<void> {
     try {
       const newUser = new User(_req.body); // Create a new user instance
@@ -32,14 +32,14 @@ export class UserController {
       _res.status(201).json(savedUser);
     } catch (error) {
       console.error("Error creating user:", error);
-      _res.status(400).json({ message: "Bad request", error });
+      _res.status(400).json({ message: "Bad _request", error });
     }
   }
 
   // Update a user by ID
   public static async updateUser(
-    _req: Request,
-    _res: Response
+    _req: _Request,
+    _res: _Response
   ): Promise<void> {
     try {
       const updatedUser = await User.findByIdAndUpdate(
@@ -57,14 +57,14 @@ export class UserController {
       _res.status(200).json(updatedUser);
     } catch (error) {
       console.error("Error updating user:", error);
-      _res.status(400).json({ message: "Bad request", error });
+      _res.status(400).json({ message: "Bad _request", error });
     }
   }
 
   // Delete a user by ID
   public static async deleteUser(
-    _req: Request,
-    _res: Response
+    _req: _Request,
+    _res: _Response
   ): Promise<void> {
     try {
       const deletedUser = await User.findByIdAndDelete(_req.params.id); // Delete user by ID
