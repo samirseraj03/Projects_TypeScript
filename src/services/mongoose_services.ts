@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import mongoose from 'npm:mongoose';
+import dotenv from 'npm:dotenv';
 import process from "node:process";
 
 // Load environment variables

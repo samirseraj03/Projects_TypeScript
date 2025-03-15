@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router } from 'npm:express';
 import { UserController } from  '../controllers/users.controller.ts';
 import { AuthController } from  '../controllers/auth.controller.ts';
 import { ProjectController } from  '../controllers/project.controller.ts';

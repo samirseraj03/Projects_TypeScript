@@ -1,4 +1,4 @@
-import { _Request, _Response } from 'express';
+import { _Request, _Response } from "npm:express";
 // import Models
 import { User } from "../models/User.models.ts";
 

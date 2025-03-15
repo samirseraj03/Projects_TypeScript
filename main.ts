@@ -1,4 +1,4 @@
-import express from 'express';
+import express from 'npm:express';
 import router from "./src/routes/orbitas.routes.ts";
 import { Mongoose } from './src/services/mongoose_services.ts'; 
 

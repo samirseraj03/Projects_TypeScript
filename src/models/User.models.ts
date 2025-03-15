@@ -1,5 +1,5 @@
 // models/User.ts
-import mongoose from "mongoose";
+import mongoose from "npm:mongoose";
 
 export interface IUser {
   _id: string;
