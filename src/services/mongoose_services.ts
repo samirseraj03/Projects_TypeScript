@@ -1,4 +1,4 @@
-import mongoose from 'npm:mongoose';
+import mongoose  from 'npm:mongoose';
 import dotenv from 'npm:dotenv';
 import process from "node:process";
 
@@ -33,6 +33,8 @@ export class Mongoose {
         try {
             await mongoose.connect(mongoUrl, {
                 dbName: dbName , 
+                serverSelectionTimeoutMS: 50000,
+                replicaSet: 'atlas-nykki7-shard-0',
               });
             this.isConnected = true;
             console.log('MongoDB connected successfully');

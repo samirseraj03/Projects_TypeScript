@@ -3,13 +3,30 @@ import { _Request, _Response } from "npm:express";
 import { User } from "../models/User.models.ts";
 
 export class UserController {
-  // Get a user by ID
-  public static async getUserById(
-    _req: _Request,
-    _res: _Response
-  ): Promise<void> {
+
+
+  // Test
+  public static async gethelloworld( _req: _Request, _res : _Response) : Promise<void>
+  {
+    await console.log()
     try {
+      console.log("hello")
+      _res.status(200).json({ message: "hello world" });
+      return;
+    }
+    catch(error) {
+      console.error("Error fetching user:", error);
+      _res.status(500).json({ message: "Internal server error" });
+      return
+      }
+  }
+
+  // Get a user by ID
+  public static async getUserById(_req: _Request,_res: _Response): Promise<void> {
+    try {
+      console.log(_req.params)
       const user = await User.findById(_req.params.id); // Retrieve user by ID
+      console.log(user)
       if (!user) {
         _res.status(404).json({ message: "User not found" });
         return;
